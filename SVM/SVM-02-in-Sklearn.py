@@ -3,7 +3,7 @@
 Created on 2016/12/21 16:00
 
 Support Vector Machine
-To use grid_search and cross_validation
+Use grid_search and cross_validation
 to find best paramaters and kernel of SVC
 
 @author: lguduy
@@ -52,5 +52,3 @@ y_true, y_pred =y_test, clf.predict(X_test)
 score = clf.score(X_test, y_true)
 
 print(classification_report(y_true, y_pred))
-
-
