@@ -26,10 +26,10 @@ train_y = Y[:400, :]
 test_x = X[400:, :]
 test_y = Y[400:, :]
 
-Cs = xrange(10, 101, 2)                           # 惩罚系数的倒数， 用来控制模型复杂度
+C = xrange(10, 101, 2)                           # 惩罚系数的倒数， 用来控制模型复杂度
 
 """用roc_auc为评价标准选择参数"""
-clf = LogisticRegressionCV(Cs=Cs, cv=4, class_weight="balanced",
+clf = LogisticRegressionCV(Cs=C, cv=4, class_weight="balanced",
                            scoring="roc_auc")
 clf.fit(train_x, train_y)
 

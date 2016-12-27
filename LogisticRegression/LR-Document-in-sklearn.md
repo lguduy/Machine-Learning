@@ -4,7 +4,7 @@
 
 逻辑回归不同于它的名字，它是一个用于**分类的线性模型**. 在这个模型中应用**逻辑函数**反映事件发生的可能性.
 
-可用于二元和多元分类，并能用L1和L2范数限制模型复杂度，避免过拟合。
+可用于二元和多元分类，并能用 **L1和L2范数** 限制模型复杂度，避免过拟合。
 
 ***
 
@@ -19,7 +19,7 @@
 
 “lbfgs”, “sag” and “newton-cg”算法只支持**L2正则化**, 对于高维数据优化速度快. 设置参数 **multi_class为 “multinomial”**，用上述优化算法，能够得到"真"的多元回归模型，理论上模型效果优于默认参数为 **“one-vs-rest”** 的情形.
 
-“lbfgs”, “sag” 和 “newton-cg”优化算法不能优化L1正则项模型，因此 “multinomial” 选项不能得到模型的稀疏解.
+**注意：**“lbfgs”, “sag” 和 “newton-cg”优化算法不能优化使用L1正则项的模型，因此 “multinomial” 选项不能得到模型的稀疏解.
 
 "sag" 是一种SGD类算法，对于维度和数量都很大的数据集在速度上要优于其他算法。
 
@@ -37,7 +37,7 @@
 
 ***
 
-sklearn.linear_model.LogisticRegression参数介绍
+### sklearn.linear_model.LogisticRegression
 
 sklearn.linear_model.LogisticRegression(*penalty='l2', dual=False, tol=0.0001, C=1.0, fit_intercept=True, intercept_scaling=1, class_weight=None, random_state=None, solver='liblinear', max_iter=100, multi_class='ovr', verbose=0, warm_start=False, n_jobs=1*)
 
@@ -47,7 +47,7 @@ sklearn.linear_model.LogisticRegression(*penalty='l2', dual=False, tol=0.0001, C
 
 * penalty : ‘l1’ or ‘l2’, default: ‘l2’
 * dual : bool, default: False
-* C : float, default: 1.0. 正则项惩罚系数的倒数.
+* C : float, default: 1.0. **正则项惩罚系数的倒数.**
 * fit_intercept : bool, default: True ?
 * intercept_scaling : float, default 1 ?
 当使用‘liblinear’算法，且 self.fit_intercept 为"True"时起作用
@@ -68,10 +68,12 @@ sklearn.linear_model.LogisticRegression(*penalty='l2', dual=False, tol=0.0001, C
 
 ***
 
+### sklearn.linear_model.LogisticRegressionCV
 sklearn.linear_model.LogisticRegressionCV *(Cs=10, fit_intercept=True, cv=None, dual=False, penalty='l2', **scoring=None**, solver='lbfgs', tol=0.0001, max_iter=100, class_weight=None, n_jobs=1, verbose=0, refit=True, intercept_scaling=1.0, multi_class='ovr', random_state=None)*
 
 **Parameters:**
 
+* Cs: 惩罚参数
 * scoring : callabale
 Scoring function to use as cross-validation criteria. For a list of scoring functions that can be used, look at **sklearn.metrics**. The default scoring option used is **accuracy_score**.
 
@@ -81,7 +83,7 @@ clf = LogisticRegressionCV(Cs=Cs, cv=4, class_weight="balanced",
 clf.fit(train_x, train_y)
 ```
 
-常用的评价标准：
+**常用的评价标准**：
 
 * ‘accuracy’
 * ‘f1’
