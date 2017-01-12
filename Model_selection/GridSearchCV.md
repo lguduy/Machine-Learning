@@ -8,24 +8,32 @@ GridSearchCV(estimator, **param_grid**, **scoring=None**, fit_params=None, n_job
 
 **Paramaters:**
 
-* estimator : estimator object
+* **estimator** : estimator object
     Either estimator needs to provide a score function, or **scoring** must be passed.
 
-* param_grid : 参数网格
+* **param_grid**: 参数网格
     dict or list of dictionaries
 
-* scoring : 评价标准
+* **scoring**: 评价标准
     string, callable or None, default=None
+    **常用的评价标准**：
 
-* cv : K折交叉验证
+    * ‘accuracy’
+    * ‘f1’
+    * ‘precision’
+    * ‘recall’
+    * ‘roc_auc’
+    **sklearn.metrics.make_scorer**: Make a **scorer** from a performance metric or loss function.
+
+* cv: K折交叉验证
     int, cross-validation generator or an iterable, optional
     Determines the cross-validation splitting strategy
     if None, default 3-fold cross validation
-    if int, 指定K值，一般int=5
+    if int, 指定K值，一般为5
     可以是交叉验证生成器对象
     An iterable yielding train, test splits.
 
-* verbose : integer
+* verbose: integer
     Controls the verbosity: the higher, the more message.
 
 * return_train_score : boolean, default=True
