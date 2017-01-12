@@ -8,17 +8,19 @@ to find best paramaters and kernel of SVC
 
 @author: lguduy
 """
-from __future__ import print_function
 
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import classification_report
 from sklearn.svm import SVC
-import matplotlib.pyplot as plt
 
 """Load data"""
 iris = datasets.load_iris()
+
+X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target,
+                                                    test_size=0.3,
+                                                    random_state=0)
 
 """train_test_split():将输入数据随机分为训练数据和测试数据
 
@@ -32,9 +34,6 @@ test_size: float, int, or None (default is None)
 random_state:int or RandomState
     Pseudo-random number generator state used for random sampling.
 """
-X_train, X_test, y_train, y_test = train_test_split(iris.data, iris.target,
-                                                    test_size=0.3,
-                                                    random_state=0)
 
 """Parameters_grid"""
 parameters_grid = [{'kernel':['rbf'],
@@ -51,4 +50,4 @@ y_true, y_pred =y_test, clf.predict(X_test)
 
 score = clf.score(X_test, y_true)
 
-print(classification_report(y_true, y_pred))
+print classification_report(y_true, y_pred)

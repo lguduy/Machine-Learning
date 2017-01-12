@@ -3,7 +3,7 @@
 Created on 2016/12/19 20:00
 
 支持向量机
-Plot different SVM classifiers in the iris dataset
+Plot different SVM classifiers on the iris dataset
 注意：
 1. 原来一直以为分类边界是用分类器的coef_和intercept_参数画出来的
    实际上是生成采样点，用各个分类器去预测每个点的分类，间接生成分类边界
